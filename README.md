@@ -174,7 +174,7 @@ It's proabably also advisable to use a USB mouse until after installation when t
 
 By default, Debian might want to format the drive with a GPT partitioning scheme. This is not what you want for legacy BIOS mode. Instead, you'll want to manually partition the drive with legacy "msdos" style partitions.
 
-If you used MacOS before then make an Gparted USB or DVD, boot from that and on the top bar select Device > Create Partition Table then select ms-dos from the list and hit apply.
+If you did not boot an OS with legacy BIOS mode before then make an Gparted USB or DVD, boot from that and on the top bar select Device > Create Partition Table then select ms-dos from the list and hit apply.
 
 The first partition will hold necessary boot files: the kernel, init ramdisk, and grub. In an MBR partitioning scheme, the MBR sits right in front of this partition as well. I think it only needs to be in the first 2GB for the legacy bootloader to find it, but it's recommended to place this partition first. It doesn't need to be large. I configured mine with 500MB.
 
@@ -227,7 +227,7 @@ sudo passwd -l root
 
 Wayland has very serious glitching issues with this video hardware once acceleration is working. Oddly, the mouse cursor appears fine, but the background textures in gdm and other user interface elements are glitchy and smeared about the screen. There must be something Wayland is using that is not supported by the hardware. XOrg runs almost perfectly, however, so you can just disable Wayland and pretend you didn't see this.
 
-Edit /etc/gmd3/daemon.conf and remove the comment from the following line:
+Edit /etc/gdm3/daemon.conf and remove the comment from the following line:
 
 ```
 WaylandEnable=false
