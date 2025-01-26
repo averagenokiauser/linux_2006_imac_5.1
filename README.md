@@ -173,6 +173,7 @@ It's proabably also advisable to use a USB mouse until after installation when t
 ### Formatting the new drive for legacy boot
 
 By default, Debian might want to format the drive with a GPT partitioning scheme. This is not what you want for legacy BIOS mode. Instead, you'll want to manually partition the drive with legacy "msdos" style partitions.
+If you used MacOS before then make an Gparted USB or DVD, boot from that and on the top bar select Device > Create Partition Table then select ms-dos from the list and hit apply.
 
 The first partition will hold necessary boot files: the kernel, init ramdisk, and grub. In an MBR partitioning scheme, the MBR sits right in front of this partition as well. I think it only needs to be in the first 2GB for the legacy bootloader to find it, but it's recommended to place this partition first. It doesn't need to be large. I configured mine with 500MB.
 
